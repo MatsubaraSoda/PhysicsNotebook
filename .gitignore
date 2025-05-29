@@ -1,0 +1,19 @@
+# node_modules - 安装的依赖包
+node_modules/
+
+# 构建输出目录（默认是 .vitepress/dist）
+.vitepress/dist/
+
+# 本地缓存文件
+.vitepress/cache/
+
+# 操作系统和编辑器生成的文件
+.DS_Store
+Thumbs.db
+*.log
+
+# Vercel 的构建输出缓存
+.vercel/output/
+
+# VSCode 设置（可选）
+.vscode/

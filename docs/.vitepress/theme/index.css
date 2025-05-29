@@ -1,0 +1,15 @@
+/* ✅ 放大时的背景遮罩（浮层） */
+.medium-zoom-overlay {
+  background: rgba(0, 0, 0, 0.8);  /* 深色背景 */
+  opacity: 1 !important;          /* 确保显示 */
+  transition: opacity 0.3s ease;  /* 淡入淡出效果 */
+  z-index: 1000 !important;       /* 避免被遮挡 */
+}
+
+/* ✅ 放大时的图片样式（浮起 + 投影） */
+.medium-zoom-image--opened {
+  border-radius: 8px;                              /* 圆角美化 */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);       /* 强烈浮起阴影 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1001 !important;                        /* 高于遮罩层 */
+}
