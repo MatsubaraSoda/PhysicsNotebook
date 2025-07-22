@@ -1,5 +1,6 @@
 // 参考
 // http://www.freeendless.com/misc/vitepress/image-zoom.html
+// http://www.ducms.com/frontend/vue3/vitepress-medium-zoom
 import DefaultTheme from 'vitepress/theme'
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'

@@ -1,0 +1,41 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{tikzpicture}
+    % Define points
+    \coordinate (A) at (0,0);
+    \coordinate (B) at ({16*cos(45)},{16*sin(45)});
+    \coordinate (C) at ({16*cos(45) + 6*cos(30)}, {16*sin(45) + 6*sin(30)});
+
+    % Draw points
+    \filldraw (A) circle (2pt) node[below left] {A(0,0)};
+    \filldraw (B) circle (2pt) node[above left] {B};
+    \filldraw (C) circle (2pt) node[above right] {C};
+
+    % Draw lines between points
+    \draw[thick] (A) -- (B) -- (C);
+
+    % Draw force L at point C, vertically downward, black and thicker than members
+    \draw[->, ultra thick, black] (C) -- ++(0,-3) node[below] {$L$};
+
+    % Draw force G_1 at the midpoint of AB, vertically downward
+    \coordinate (M) at ($ (A)!0.5!(B) $);
+    \draw[->, ultra thick] (M) -- ++(0,-3) node[below] {$G_1$};
+
+    % Draw force G_2 at the midpoint of BC, vertically downward
+    \coordinate (N) at ($ (B)!0.5!(C) $);
+    \draw[->, ultra thick] (N) -- ++(0,-3) node[below] {$G_2$};
+
+    % Draw force T at point B, direction -145 degrees from x-axis
+    \draw[->, ultra thick] (B) -- ++({3*cos(-145)},{3*sin(-145)}) node[left] {$T$};
+
+    % Draw force A_x at point A, along positive x-axis
+    \draw[->, ultra thick] (A) -- ++(3,0) node[right] {$A_x$};
+
+    % Draw force A_y at point A, along positive y-axis
+    \draw[->, ultra thick] (A) -- ++(0,3) node[above] {$A_y$};
+
+\end{tikzpicture}
+\end{document}
