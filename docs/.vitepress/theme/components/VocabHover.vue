@@ -204,6 +204,54 @@ async function loadContent() {
   if (contentLoaded) return
   tooltipContent.value = '<div class="vocab-loading">加载中...</div>'
 
+  // 首先尝试获取构建后的 HTML 内容
+  for (const path of props.basePaths) {
+    try {
+      const htmlResponse = await fetch(`${path}${props.vocabFile}.html`)
+      if (htmlResponse.ok) {
+        const html = await htmlResponse.text()
+        // 从 HTML 中提取主要内容
+        const parser = new DOMParser()
+        const doc = parser.parseFromString(html, 'text/html')
+        
+        // 尝试多种可能的内容选择器
+        const selectors = [
+          '.VPDoc .vp-doc',
+          '.vp-doc',
+          'main .content',
+          'main',
+          '.content',
+          'article',
+          '#app'
+        ]
+        
+        let mainContent = null
+        for (const selector of selectors) {
+          mainContent = doc.querySelector(selector)
+          if (mainContent && mainContent.innerHTML.trim()) {
+            break
+          }
+        }
+        
+        if (mainContent && mainContent.innerHTML.trim()) {
+          // 清理一些不需要的元素
+          const content = mainContent.cloneNode(true)
+          const unwantedElements = content.querySelectorAll('nav, .nav, .sidebar, .footer, .header, script, style')
+          unwantedElements.forEach(el => el.remove())
+          
+          tooltipContent.value = content.innerHTML
+          contentLoaded = true
+          // 渲染 Mermaid 图表
+          await renderMermaid()
+          return
+        }
+      }
+    } catch (e) {
+      // 忽略错误，继续尝试 markdown
+    }
+  }
+
+  // 如果 HTML 获取失败，回退到 markdown（主要用于开发环境）
   for (const path of props.basePaths) {
     try {
       const response = await fetch(`${path}${props.vocabFile}.md`)
