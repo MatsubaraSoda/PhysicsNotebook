@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 // .vitepress/config.js
+
+// https://emersonbottero.github.io/vitepress-plugin-mermaid/
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 export default withMermaid(
@@ -9,7 +11,7 @@ defineConfig({
   lang: 'zh-CN',
   title: '笔记',
   description: '',
-  head: [['link', { rel: 'icon', href: 'logo.png' }]],
+  head: [['link', { rel: 'icon', href: '/logo.png' }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
-    "mermaid": "^11.6.0",
+    "mermaid": "^11.9.0",
     "vitepress": "^1.6.3",
     "vitepress-plugin-mermaid": "^2.0.17"
   },
@@ -14,6 +14,7 @@
     "physics:preview": "vitepress preview physics"
   },
   "dependencies": {
+    "markdown-it": "^14.1.0",
     "medium-zoom": "^1.1.0"
   }
 }
