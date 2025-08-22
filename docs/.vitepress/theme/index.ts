@@ -8,6 +8,15 @@ import mediumZoom from 'medium-zoom'
 import './index.css'
 import mermaid from 'mermaid'
 
+// 引入 layui
+// import 'layui/dist/css/layui.css'
+// import 'layui/dist/layui.js'
+
+// bootstrap
+// npm i bootstrap@5.3.7 --save
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// 会影响整个 vitepress 样式
+
 // 引入自定义组件
 import VocabHover from './components/VocabHover.vue'
 
@@ -37,4 +46,5 @@ export default {
     onMounted(() => initZoom())
     watch(() => route.path, () => nextTick(() => initZoom()))
   }
+
 }

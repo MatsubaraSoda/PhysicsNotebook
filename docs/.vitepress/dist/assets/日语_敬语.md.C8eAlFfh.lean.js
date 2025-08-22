@@ -1,0 +1,1 @@
+import{f as e,c as l,o as n,a1 as r}from"./chunks/framework.BnRw5oCp.js";const x=JSON.parse('{"title":"敬语","description":"","frontmatter":{},"headers":[],"relativePath":"日语/敬语.md","filePath":"日语/敬语.md"}'),d={name:"日语/敬语.md"};function a(c,t,i,s,o,y){return n(),l("div",null,t[0]||(t[0]=[r("",7)]))}const b=e(d,[["render",a]]);export{x as __pageData,b as default};

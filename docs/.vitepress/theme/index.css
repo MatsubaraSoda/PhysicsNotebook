@@ -53,3 +53,11 @@ html.dark .vocab-term-title {
   line-height: 1.8;                              /* 内容行高 */
   color: inherit;                                 /* 继承父元素颜色 */
 }
+
+/* 禁止注音文本选择 */
+rt {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

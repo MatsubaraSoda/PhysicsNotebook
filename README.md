@@ -7,7 +7,19 @@ npx vitepress dev docs
 pdf 转 png
 
 ```cmd
+# 基础转换
 magick -density 600 "题目.pdf" -quality 100 -sharpen 0x1.0 "题目.png"
+
+# 保持颜色准确的转换方法（推荐）- AI 生成
+magick -density 600 -colorspace sRGB "题目.pdf" -quality 100 -sharpen 0x1.0 "题目.png"
+```
+
+插入图片
+
+```html
+<div style="width: fit-content; margin: 0 auto;">
+  <img src="/物理学/力学/静力学/FBD/Prob_F6_24/Prob_F6_24_FBD.png" alt="Prob_F6_24_FBD" style="height: 350px; background-color: white; padding: 10px; border-radius: 5px;">
+</div>
 ```
 
 tikz 作图
@@ -76,4 +88,5 @@ This is a details block.
 
 内容
 
+</div>
 ```

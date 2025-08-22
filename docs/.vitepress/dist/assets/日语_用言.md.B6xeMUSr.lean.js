@@ -1,0 +1,1 @@
+import{f as e,c as n,o as l,a1 as r}from"./chunks/framework.BnRw5oCp.js";const h=JSON.parse('{"title":"用言","description":"","frontmatter":{},"headers":[],"relativePath":"日语/用言.md","filePath":"日语/用言.md"}'),d={name:"日语/用言.md"};function a(i,t,s,y,c,x){return l(),n("div",null,t[0]||(t[0]=[r("",40)]))}const b=e(d,[["render",a]]);export{h as __pageData,b as default};

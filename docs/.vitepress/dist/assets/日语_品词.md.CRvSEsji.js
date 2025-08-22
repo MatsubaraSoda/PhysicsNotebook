@@ -1,0 +1,32 @@
+import{f as n,c as a,o as p,a1 as l}from"./chunks/framework.BnRw5oCp.js";const e="/%E6%97%A5%E8%AF%AD/%E5%93%81%E8%A9%9E%E3%81%AE%E5%88%86%E9%A1%9E.svg",h=JSON.parse('{"title":"品词","description":"","frontmatter":{},"headers":[],"relativePath":"日语/品词.md","filePath":"日语/品词.md"}'),t={name:"日语/品词.md"};function i(c,s,r,o,d,_){return p(),a("div",null,s[0]||(s[0]=[l('<h1 id="品词" tabindex="-1">品词 <a class="header-anchor" href="#品词" aria-label="Permalink to &quot;品词&quot;">​</a></h1><p><img src="'+e+`" alt="品詞の分類" data-zoomable=""></p><details><summary>品詞の分類 (<a href="https://yohasebe.com/rsyntaxtree/" target="_blank">RSyntaxTree</a>)</summary><div class="language-RSyntaxTree vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">RSyntaxTree</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>[すべての単語</span></span>
+<span class="line"><span>  [自立語</span></span>
+<span class="line"><span>    [活用する</span></span>
+<span class="line"><span>      [述語になる</span></span>
+<span class="line"><span>        [う段で終わる 動詞]</span></span>
+<span class="line"><span>        [い段で終わる 形容詞]</span></span>
+<span class="line"><span>        [だ・ですで終わる 形容動詞]</span></span>
+<span class="line"><span>      ]</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>    [活用しない</span></span>
+<span class="line"><span>      [主語になる</span></span>
+<span class="line"><span>        [&lt;&gt; 名詞]</span></span>
+<span class="line"><span>      ]</span></span>
+<span class="line"><span>      [修飾語になる</span></span>
+<span class="line"><span>        [用言を修飾する 副詞]</span></span>
+<span class="line"><span>        [体言を修飾する 連体詞]</span></span>
+<span class="line"><span>      ]</span></span>
+<span class="line"><span>      [修飾語にならない</span></span>
+<span class="line"><span>        [接続語になる 接続詞]</span></span>
+<span class="line"><span>        [独立語になる 感動詞]</span></span>
+<span class="line"><span>      ]</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>  ]</span></span>
+<span class="line"><span>  [付属語</span></span>
+<span class="line"><span>    [活用する</span></span>
+<span class="line"><span>      [&lt;&gt; [&lt;&gt; 助動詞]]</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>    [活用しない</span></span>
+<span class="line"><span>      [&lt;&gt; [&lt;&gt; 助詞]]</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>  ]</span></span>
+<span class="line"><span>]</span></span></code></pre></div></details>`,3)]))}const g=n(t,[["render",i]]);export{h as __pageData,g as default};

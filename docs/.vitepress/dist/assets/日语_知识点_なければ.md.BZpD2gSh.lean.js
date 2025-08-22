@@ -1,0 +1,1 @@
+import{f as a,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const m=JSON.parse('{"title":"なければ","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/なければ.md","filePath":"日语/知识点/なければ.md"}'),s={name:"日语/知识点/なければ.md"};function n(_,t,c,i,d,l){return r(),e("div",null,t[0]||(t[0]=[o("",4)]))}const v=a(s,[["render",n]]);export{m as __pageData,v as default};
