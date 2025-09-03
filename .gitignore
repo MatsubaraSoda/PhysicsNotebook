@@ -18,5 +18,6 @@ Thumbs.db
 # VSCode 设置（可选）
 .vscode/
 
-# 草稿纸文件夹
+# 其他文件夹
 playground/
+pdf/

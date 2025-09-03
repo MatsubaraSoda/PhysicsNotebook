@@ -12,6 +12,9 @@ magick -density 600 "题目.pdf" -quality 100 -sharpen 0x1.0 "题目.png"
 
 # 保持颜色准确的转换方法（推荐）- AI 生成
 magick -density 600 -colorspace sRGB "题目.pdf" -quality 100 -sharpen 0x1.0 "题目.png"
+
+# 添加白色背景色 - AI 生成
+magick -density 600 -colorspace sRGB "题目.pdf" -quality 100 -sharpen 0x1.0 -background white -alpha remove "题目.png"
 ```
 
 插入图片
@@ -89,4 +92,17 @@ This is a details block.
 内容
 
 </div>
+```
+
+`keybindings.json`
+
+```json
+{
+  "key": "ctrl+numpad1",
+  "command": "editor.action.insertSnippet",
+  "when": "editorTextFocus && editorHasSelection",
+  "args": {
+    "snippet": "<ruby>${TM_SELECTED_TEXT}<rt>$0</rt></ruby>"
+  }
+},
 ```

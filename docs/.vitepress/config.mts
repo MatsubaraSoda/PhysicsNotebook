@@ -56,6 +56,7 @@ export default withMermaid(
                   { text: '刚体的平衡', link: '/物理学/力学/静力学/刚体的平衡' },
                   { text: '结构分析', link: '/物理学/力学/静力学/结构分析' },
                   { text: '内力', link: '/物理学/力学/静力学/内力' },
+                  { text: '摩擦力', link: '/物理学/力学/静力学/摩擦力' },
                 ],
               },
             ],
@@ -97,6 +98,8 @@ export default withMermaid(
               { text: 'メセナ', link: '/日语/新标日高级上/メセナ' },
               { text: '自然災害', link: '/日语/新标日高级上/自然災害' },
               { text: '資源', link: '/日语/新标日高级上/資源' },
+              { text: 'エネルギー', link: '/日语/新标日高级上/エネルギー' },
+              { text: 'CSR', link: '/日语/新标日高级上/CSR' },
             ]
           }
         ],

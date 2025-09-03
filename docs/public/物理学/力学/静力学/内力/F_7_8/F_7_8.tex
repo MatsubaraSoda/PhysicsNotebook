@@ -1,0 +1,83 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc} % 坐标计算库
+\usetikzlibrary{patterns} % 阴影填充库
+\usepackage{pgfplots} % 绘图库
+\usepgfplotslibrary{fillbetween} % 区域阴影
+\pgfplotsset{compat=1.18} % 设置 pgfplots 版本
+\usetikzlibrary{patterns.meta} % 图案库
+
+% 常量声明
+\newcommand{\xmin}{0}
+\newcommand{\xmax}{3.5}
+\newcommand{\ymin}{-8}
+\newcommand{\ymax}{18}
+
+\begin{document}
+
+\begin{tikzpicture}
+    % Shear Diagram
+    \begin{axis}[
+            axis lines=middle, % 学校式坐标轴
+            axis line style={thick},
+            xlabel={$x(m)$},
+            xlabel style={right},
+            ylabel={$V(kN)$},
+            ylabel style={above},
+            xtick={3},
+            xticklabel style={anchor=south, yshift=4pt},
+            ytick=\empty,
+            xmin=\xmin, xmax=\xmax,
+            ymin=\ymin, ymax=\ymax,
+            domain=0:3,
+        ]
+        % 定义函数和x轴
+        \addplot[name path=A, domain=0:3, thick] {-2*x};
+        \addplot[name path=B, domain=0:3] {0};
+        % 填充两者之间的区域
+        \addplot[
+            pattern={Lines[angle=45, distance=6pt]},
+        ] fill between [of=A and B];
+        % 添加标识线
+        \draw[thick] (axis cs:3,0) -- (axis cs:3,-6);
+        % \draw[thick, dashed] (axis cs:0,-6) -- (axis cs:3,-6);
+        \node at (axis cs:3,-6) [below] {$-6$};
+    \end{axis}
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    % Moment Diagram
+    \begin{axis}[
+            axis lines=middle, % 学校式坐标轴
+            axis line style={thick},
+            xlabel={$x(m)$},
+            xlabel style={right},
+            ylabel={$M(kN \cdot m)$},
+            ylabel style={above},
+            xtick={3},
+            ytick={15},
+            xmin=\xmin, xmax=\xmax,
+            ymin=\ymin, ymax=\ymax,
+            domain=0:3,
+        ]
+        % 定义函数和x轴
+        % int (w dx) x + M - 15 = 0
+        % int w x dx + M - 15 = 0
+        % int 2 x dx + M - 15 = 0
+        % x^2 + M - 15 = 0
+        % M = 15 - x^2
+        \addplot[name path=A, domain=0:3, thick] {15 - x^2};
+        \addplot[name path=B, domain=0:3] {0};
+        % 填充两者之间的区域
+        \addplot[
+            pattern={Lines[angle=45, distance=6pt]},
+        ] fill between [of=A and B];
+        % 添加标识线或点
+        \draw[thick] (axis cs:3,0) -- (axis cs:3,6);
+        \node at (axis cs:3,6) [above] {$6$};
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}
