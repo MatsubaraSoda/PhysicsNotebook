@@ -1,12 +1,14 @@
 // 参考
 // http://www.freeendless.com/misc/vitepress/image-zoom.html
 // http://www.ducms.com/frontend/vue3/vitepress-medium-zoom
+
 import DefaultTheme from 'vitepress/theme'
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
 import mediumZoom from 'medium-zoom'
 import './index.css'
 import mermaid from 'mermaid'
+// 不再直接导入 mathjax-full，而是在客户端动态加载
 
 // 引入 layui
 // import 'layui/dist/css/layui.css'
@@ -25,12 +27,12 @@ let zoomInstance: ReturnType<typeof mediumZoom> | null = null
 export default {
   ...DefaultTheme,
 
-  enhanceApp({ app, router }) {
+  enhanceApp({ app, router }: { app: import('vue').App, router: any }) {
     // 注册组件
-    app.component('VocabHover', VocabHover)
+    app.component('VocabHover', VocabHover);
 
     // 初始化 mermaid
-    mermaid.initialize({ startOnLoad: true })
+    mermaid.initialize({ startOnLoad: true });
   },
 
   setup() {

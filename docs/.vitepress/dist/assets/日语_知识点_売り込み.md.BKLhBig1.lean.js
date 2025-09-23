@@ -1,0 +1,1 @@
+import{f as a,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const p=JSON.parse('{"title":"売り込み","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/売り込み.md","filePath":"日语/知识点/売り込み.md"}'),s={name:"日语/知识点/売り込み.md"};function _(c,t,i,n,d,l){return r(),e("div",null,t[0]||(t[0]=[o("",2)]))}const v=a(s,[["render",_]]);export{p as __pageData,v as default};

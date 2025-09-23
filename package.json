@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "markdown-it-mathjax3": "^4.3.2",
     "mermaid": "^11.9.0",
     "vitepress": "^1.6.3",
     "vitepress-plugin-mermaid": "^2.0.17"
@@ -11,9 +10,8 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "bootstrap": "^5.3.7",
-    "layui": "^2.11.5",
     "markdown-it": "^14.1.0",
+    "markdown-it-mathjax3": "^4.3.2",
     "medium-zoom": "^1.1.0",
     "postcss-cli": "^11.0.1",
     "postcss-prefix-selector": "^2.1.1"

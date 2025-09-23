@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 // https://emersonbottero.github.io/vitepress-plugin-mermaid/
 import { withMermaid } from "vitepress-plugin-mermaid";
 
+
 export default withMermaid(
 
   // https://vitepress.dev/reference/site-config
@@ -11,7 +12,9 @@ export default withMermaid(
     lang: 'zh-CN',
     title: '笔记',
     description: '',
-    head: [['link', { rel: 'icon', href: '/logo.png' }]],
+    head: [
+      ['link', { rel: 'icon', href: '/logo.png' }],
+    ],
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
       nav: [
@@ -115,8 +118,9 @@ export default withMermaid(
 
     // 数学公式
     markdown: {
-      math: true
+      math: true,
     },
+
 
     // https://mermaid.live/ 在线 mermaid 编辑器
     // optionally, you can pass MermaidConfig

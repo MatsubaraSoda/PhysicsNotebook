@@ -1,0 +1,1 @@
+import{f as a,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const b=JSON.parse('{"title":"誘う","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/誘う.md","filePath":"日语/知识点/誘う.md"}'),s={name:"日语/知识点/誘う.md"};function c(i,t,_,n,d,l){return r(),e("div",null,t[0]||(t[0]=[o("",2)]))}const p=a(s,[["render",c]]);export{b as __pageData,p as default};

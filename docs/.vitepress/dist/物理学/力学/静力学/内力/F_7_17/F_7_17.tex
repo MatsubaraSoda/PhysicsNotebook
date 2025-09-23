@@ -1,0 +1,88 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc} % 坐标计算库
+\usetikzlibrary{patterns} % 阴影填充库
+\usepackage{pgfplots} % 绘图库
+\usepgfplotslibrary{fillbetween} % 区域阴影
+\pgfplotsset{compat=1.18} % 设置 pgfplots 版本
+\usetikzlibrary{patterns.meta} % 图案库
+
+% 常量声明
+\newcommand{\xmin}{0}
+\newcommand{\xmax}{7}
+\newcommand{\ymin}{-12}
+\newcommand{\ymax}{12}
+
+\begin{document}
+
+\begin{tikzpicture}    
+    % Shear Diagram
+    \begin{axis}[
+            axis lines=middle, % 学校式坐标轴
+            axis line style={thick},
+            xlabel={$x(m)$},
+            xlabel style={right},
+            ylabel={$V(kN)$},
+            ylabel style={above},
+            xtick={3,6},
+            % xticklabels={,,},
+            xticklabel style={anchor=south, yshift=4pt},
+            ytick={9},
+            xmin=\xmin, xmax=\xmax,
+            ymin=\ymin, ymax=\ymax,
+        ]
+        % 定义函数和x轴
+        \addplot[name path=A, domain=0:3, thick] {9-6*x+x^2};
+        \addplot[name path=B, domain=3:6, thick] {0-(x-3)^2};
+        \addplot[name path=AA, domain=0:3] {0};
+        \addplot[name path=BB, domain=3:6] {0};
+        % 填充两者之间的区域
+        \addplot[
+            pattern={Lines[angle=45, distance=6pt]},
+        ] fill between [of=A and AA];
+        \addplot[
+            pattern={Lines[angle=45, distance=6pt]},
+        ] fill between [of=B and BB];
+        % 添加标识线或点
+        \node at (axis cs:6,-9) [below] {$-9$};
+        \draw[thick] (axis cs:6,0) -- (axis cs:6,-9);
+    \end{axis}
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    % Moment Diagram
+    \begin{axis}[
+            axis lines=middle, % 学校式坐标轴
+            axis line style={thick},
+            xlabel={$x(m)$},
+            xlabel style={right},
+            ylabel={$V(kN)$},
+            ylabel style={above},
+            xtick={3,6},
+            % xticklabels={,,},
+            % xticklabel style={anchor=south, yshift=4pt},
+            ytick=\empty,
+            xmin=\xmin, xmax=\xmax,
+            ymin=\ymin, ymax=\ymax,
+        ]
+        % 定义函数和x轴
+        \addplot[name path=A, domain=0:3, thick] {9*x-3*x^2+x^3/3};
+        \addplot[name path=B, domain=3:6, thick] {9-(x-3)^3/3};
+        \addplot[name path=AA, domain=0:3] {0};
+        \addplot[name path=BB, domain=3:6] {0};
+        % 填充两者之间的区域
+        \addplot[
+            pattern={Lines[angle=45, distance=6pt]},
+        ] fill between [of=A and AA];
+        \addplot[
+            pattern={Lines[angle=45, distance=6pt]},
+        ] fill between [of=B and BB];
+        % 添加标识线或点
+        % xtick
+        \node at (axis cs:3,9) [above] {$9$};
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}

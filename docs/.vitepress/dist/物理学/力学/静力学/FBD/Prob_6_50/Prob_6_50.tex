@@ -1,0 +1,80 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}  % 三维支持
+\usetikzlibrary{calc}     % 坐标计算库
+
+\begin{document}
+% 设置视角（方位角度和仰角）
+\tdplotsetmaincoords{70}{110} 
+
+% 定义杆件粗细变量
+\newcommand{\memberThick}{2pt}
+
+\begin{tikzpicture}[scale=2,tdplot_main_coords]
+
+% 绘制坐标轴
+\draw[thick,->] (-5,0,0) -- (5,0,0) node[anchor=north east]{\Large $x$};
+\draw[thick,->] (0,0,0) -- (0,6,0) node[anchor=north west]{\Large $y$};
+\draw[thick,->] (0,0,0) -- (0,0,7) node[anchor=south]{\Large $z$};
+
+% 绘制五个点（定义为坐标点）
+\coordinate (A) at (0,4,0);
+\coordinate (B) at (0,2,5);
+\coordinate (C) at (-3,0,0);
+\coordinate (D) at (3,0,0);
+\coordinate (E) at (0,0,5);
+
+\fill[black] (A) circle (1.5pt) node[above right] {\Large A};
+\fill[black] (B) circle (1.5pt) node[above right] {\Large B};
+\fill[black] (C) circle (1.5pt) node[above left] {\Large C};
+\fill[black] (D) circle (1.5pt) node[above left] {\Large D};
+\fill[black] (E) circle (1.5pt) node[above left] {\Large E};
+
+% 绘制连接线
+\draw[line width=\memberThick] (A) -- (B);    % AB
+\draw[line width=\memberThick] (A) -- (C);    % AC
+\draw[line width=\memberThick] (A) -- (D);    % AD
+\draw[line width=\memberThick] (B) -- (C);    % BC
+\draw[line width=\memberThick] (B) -- (D);    % BD
+\draw[line width=\memberThick] (B) -- (E);    % BE
+
+% 绘制支座
+\draw[line width=1.5pt] (C) -- ($(C) + (0,-0.5,0)$);
+\draw[line width=1.5pt] (D) -- ($(D) + (0,-0.5,0)$);
+\draw[line width=1.5pt] (E) -- ($(E) + (0,-0.5,0)$);
+
+% 绘制空心圆圈
+\fill[white] ($(C) + (0,-0.5,0)$) circle (2pt);
+\draw[thick] ($(C) + (0,-0.5,0)$) circle (2pt);
+\fill[white] ($(D) + (0,-0.5,0)$) circle (2pt);
+\draw[thick] ($(D) + (0,-0.5,0)$) circle (2pt);
+\fill[white] ($(E) + (0,-0.5,0)$) circle (2pt);
+\draw[thick] ($(E) + (0,-0.5,0)$) circle (2pt);
+
+% 绘制负载
+\draw[line width=3pt,->] (A) -- ($(A) + (0,0,-1)$) node[below] {\Large 6 kN};
+
+% 绘制长度标注
+\draw[thick, <->, shorten <=2pt,shorten >=2pt] (0,5,0) -- (0,5,5);
+\draw[thick] (0,2,5) -- (0,6,5);
+\node[fill=white] at (0,5,2.5) {\Large 5 m};
+
+\draw[thick, <->, shorten <=2pt,shorten >=2pt] (4,0,0) -- (4,4,0);
+\node[fill=white] at (4,2,0) {\Large 4 m};
+\draw[thick] (5,4,0) -- (0,4,0);
+
+\draw[thick, <->, shorten <=2pt,shorten >=2pt] (0,0,2) -- (3,0,2);
+\node[fill=white] at (1.5,0,2) {\Large 3 m};
+\draw[thick] (3,0,0) -- (3,0,2.5);
+
+\draw[thick, <->, shorten <=2pt,shorten >=2pt] (0,0,-0.5) -- (-3,0,-0.5);
+\node[fill=white] at (-1.5,0,-0.5) {\Large 3 m};
+\draw[thick] (-3,0,0) -- (-3,0,-1);
+\draw[thick] (0,0,0) -- (0,0,-1);
+
+\draw[thick, <->, shorten <=2pt,shorten >=2pt] (0,0,5.5) -- (0,2,5.5);
+\node[fill=white] at (0,1,5.5) {\Large 2 m};
+\draw[thick] (0,2,5) -- (0,2,6);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,1 @@
+import{f as t,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const u=JSON.parse('{"title":"赴任","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/赴任.md","filePath":"日语/知识点/赴任.md"}'),s={name:"日语/知识点/赴任.md"};function i(c,a,n,d,_,l){return r(),e("div",null,a[0]||(a[0]=[o("",3)]))}const h=t(s,[["render",i]]);export{u as __pageData,h as default};
