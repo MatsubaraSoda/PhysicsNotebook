@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 // https://emersonbottero.github.io/vitepress-plugin-mermaid/
 import { withMermaid } from "vitepress-plugin-mermaid";
 
+// import mathjax3 from 'markdown-it-mathjax3'
 
 export default withMermaid(
 
@@ -60,6 +61,7 @@ export default withMermaid(
                   { text: '结构分析', link: '/物理学/力学/静力学/结构分析' },
                   { text: '内力', link: '/物理学/力学/静力学/内力' },
                   { text: '摩擦力', link: '/物理学/力学/静力学/摩擦力' },
+                  { text: '重心和质心', link: '/物理学/力学/静力学/重心和质心' },
                 ],
               },
             ],
@@ -120,7 +122,11 @@ export default withMermaid(
     markdown: {
       math: true,
     },
-
+    // markdown: {
+    //   config: (md) => {
+    //     md.use(mathjax3)
+    //   }
+    // },
 
     // https://mermaid.live/ 在线 mermaid 编辑器
     // optionally, you can pass MermaidConfig

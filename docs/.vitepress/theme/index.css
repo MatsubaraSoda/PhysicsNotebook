@@ -61,3 +61,9 @@ rt {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+/* mathjax3 cdn */
+/* 解决 MathJax 块级公式过高时出现垂直滚动条的问题 */
+mjx-container[jax="CHTML"][display="true"] {
+  overflow-y: visible;
+}
