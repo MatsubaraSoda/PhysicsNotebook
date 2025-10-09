@@ -23,3 +23,12 @@ playground/
 pdf/
 docs/playground/
 tmp/
+
+# 暂时忽略化学和日语笔记
+docs/化学/
+docs/日语/
+docs/public/化学/
+docs/public/日语/
+
+# 日语相关组件（这个组件专门用于日语词汇悬浮提示）
+docs/.vitepress/theme/components/VocabHover.vue
