@@ -1,1 +1,0 @@
-import{f as a,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const p=JSON.parse('{"title":"持ち運ぶ","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/持ち運ぶ.md","filePath":"日语/知识点/持ち運ぶ.md"}'),s={name:"日语/知识点/持ち運ぶ.md"};function _(c,t,i,n,d,l){return r(),e("div",null,t[0]||(t[0]=[o("",2)]))}const u=a(s,[["render",_]]);export{p as __pageData,u as default};

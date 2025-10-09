@@ -2,10 +2,10 @@
 node_modules/
 
 # 构建输出目录（默认是 .vitepress/dist）
-.vitepress/dist/
+docs/.vitepress/dist/
 
 # 本地缓存文件
-.vitepress/cache/
+docs/.vitepress/cache/
 
 # 操作系统和编辑器生成的文件
 .DS_Store

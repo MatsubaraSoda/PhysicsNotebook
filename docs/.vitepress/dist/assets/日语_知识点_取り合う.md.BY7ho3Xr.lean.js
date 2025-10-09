@@ -1,1 +1,0 @@
-import{f as a,c as e,o as s,a1 as o}from"./chunks/framework.BnRw5oCp.js";const m=JSON.parse('{"title":"取り合う","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/取り合う.md","filePath":"日语/知识点/取り合う.md"}'),r={name:"日语/知识点/取り合う.md"};function c(i,t,d,_,n,l){return s(),e("div",null,t[0]||(t[0]=[o("",3)]))}const p=a(r,[["render",c]]);export{m as __pageData,p as default};

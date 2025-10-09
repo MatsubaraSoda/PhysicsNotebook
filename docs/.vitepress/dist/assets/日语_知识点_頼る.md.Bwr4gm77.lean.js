@@ -1,1 +1,0 @@
-import{f as d,c as r,o as a,a1 as e}from"./chunks/framework.BnRw5oCp.js";const f=JSON.parse('{"title":"頼る","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/頼る.md","filePath":"日语/知识点/頼る.md"}'),o={name:"日语/知识点/頼る.md"};function s(n,t,_,h,i,l){return a(),r("div",null,t[0]||(t[0]=[e("",3)]))}const m=d(o,[["render",s]]);export{f as __pageData,m as default};

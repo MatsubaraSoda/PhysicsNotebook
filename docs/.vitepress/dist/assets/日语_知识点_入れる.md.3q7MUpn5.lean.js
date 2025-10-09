@@ -1,1 +1,0 @@
-import{f as t,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const h=JSON.parse('{"title":"入れる","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/入れる.md","filePath":"日语/知识点/入れる.md"}'),i={name:"日语/知识点/入れる.md"};function s(c,a,d,l,n,v){return r(),e("div",null,a[0]||(a[0]=[o("",11)]))}const m=t(i,[["render",s]]);export{h as __pageData,m as default};

@@ -1,1 +1,0 @@
-import{f as e,c as a,o as r,a1 as i}from"./chunks/framework.BnRw5oCp.js";const b=JSON.parse('{"title":"終わる","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/終わる.md","filePath":"日语/知识点/終わる.md"}'),l={name:"日语/知识点/終わる.md"};function d(s,t,c,n,o,v){return r(),a("div",null,t[0]||(t[0]=[i("",11)]))}const m=e(l,[["render",d]]);export{b as __pageData,m as default};

@@ -1,1 +1,0 @@
-import{f as a,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const u=JSON.parse('{"title":"腹","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/腹.md","filePath":"日语/知识点/腹.md"}'),i={name:"日语/知识点/腹.md"};function s(c,t,n,d,l,v){return r(),e("div",null,t[0]||(t[0]=[o("",13)]))}const b=a(i,[["render",s]]);export{u as __pageData,b as default};

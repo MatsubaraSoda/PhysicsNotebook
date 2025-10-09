@@ -1,1 +1,0 @@
-import{f as a,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const p=JSON.parse('{"title":"考える","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/考える.md","filePath":"日语/知识点/考える.md"}'),s={name:"日语/知识点/考える.md"};function _(c,t,i,n,d,l){return r(),e("div",null,t[0]||(t[0]=[o("",2)]))}const v=a(s,[["render",_]]);export{p as __pageData,v as default};

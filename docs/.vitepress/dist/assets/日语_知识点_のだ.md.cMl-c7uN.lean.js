@@ -1,1 +1,0 @@
-import{f as t,c as e,o as r,a1 as i}from"./chunks/framework.BnRw5oCp.js";const m=JSON.parse('{"title":"のだ","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/のだ.md","filePath":"日语/知识点/のだ.md"}'),o={name:"日语/知识点/のだ.md"};function c(s,a,d,l,n,v){return r(),e("div",null,a[0]||(a[0]=[i("",12)]))}const b=t(o,[["render",c]]);export{m as __pageData,b as default};

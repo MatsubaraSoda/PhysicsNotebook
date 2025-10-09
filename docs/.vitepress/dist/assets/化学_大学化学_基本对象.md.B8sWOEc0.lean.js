@@ -1,1 +1,0 @@
-import{f as e,c as t,o,a1 as s}from"./chunks/framework.BnRw5oCp.js";const _=JSON.parse('{"title":"基本对象","description":"","frontmatter":{},"headers":[],"relativePath":"化学/大学化学/基本对象.md","filePath":"化学/大学化学/基本对象.md"}'),n={name:"化学/大学化学/基本对象.md"};function c(r,a,i,p,d,l){return o(),t("div",null,a[0]||(a[0]=[s("",8)]))}const m=e(n,[["render",c]]);export{_ as __pageData,m as default};

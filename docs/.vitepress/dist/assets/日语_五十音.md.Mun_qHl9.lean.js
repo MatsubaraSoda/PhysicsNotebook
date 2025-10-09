@@ -1,1 +1,0 @@
-import{f as e,c as n,o as l,a1 as d}from"./chunks/framework.BnRw5oCp.js";const h=JSON.parse('{"title":"五十音","description":"","frontmatter":{},"headers":[],"relativePath":"日语/五十音.md","filePath":"日语/五十音.md"}'),r={name:"日语/五十音.md"};function a(i,t,s,c,y,x){return l(),n("div",null,t[0]||(t[0]=[d("",8)]))}const o=e(r,[["render",a]]);export{h as __pageData,o as default};

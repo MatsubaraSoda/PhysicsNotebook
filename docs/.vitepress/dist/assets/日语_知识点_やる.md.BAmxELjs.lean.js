@@ -1,1 +1,0 @@
-import{f as e,c as t,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const h=JSON.parse('{"title":"やる","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/やる.md","filePath":"日语/知识点/やる.md"}'),s={name:"日语/知识点/やる.md"};function i(c,a,n,d,_,l){return r(),t("div",null,a[0]||(a[0]=[o("",3)]))}const f=e(s,[["render",i]]);export{h as __pageData,f as default};

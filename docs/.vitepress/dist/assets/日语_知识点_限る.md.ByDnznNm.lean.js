@@ -1,1 +1,0 @@
-import{f as t,c as e,o as r,a1 as o}from"./chunks/framework.BnRw5oCp.js";const m=JSON.parse('{"title":"限る","description":"","frontmatter":{},"headers":[],"relativePath":"日语/知识点/限る.md","filePath":"日语/知识点/限る.md"}'),s={name:"日语/知识点/限る.md"};function c(i,a,n,d,l,_){return r(),e("div",null,a[0]||(a[0]=[o("",7)]))}const u=t(s,[["render",c]]);export{m as __pageData,u as default};

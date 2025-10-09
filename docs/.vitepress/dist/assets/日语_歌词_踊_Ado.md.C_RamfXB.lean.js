@@ -1,1 +1,0 @@
-import{f as a,c as o,o as e,a1 as h}from"./chunks/framework.BnRw5oCp.js";const l=JSON.parse('{"title":"踊","description":"","frontmatter":{},"headers":[],"relativePath":"日语/歌词/踊_Ado.md","filePath":"日语/歌词/踊_Ado.md"}'),t={name:"日语/歌词/踊_Ado.md"};function r(d,p,n,_,s,i){return e(),o("div",null,p[0]||(p[0]=[h("",35)]))}const c=a(t,[["render",r]]);export{l as __pageData,c as default};
