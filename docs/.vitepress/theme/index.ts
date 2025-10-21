@@ -9,6 +9,7 @@ import './index.css' // 引入自定义样式
 
 // 引入您的自定义组件
 // import VocabHover from './components/VocabHover.vue'
+import Img from './components/Img.vue'
 
 // --- VitePress 主题导出 ---
 
@@ -18,6 +19,7 @@ export default {
   enhanceApp({ app }: { app: import('vue').App }) {
     // 注册您的全局组件
     // app.component('VocabHover', VocabHover);
+    app.component('Img', Img);
 
     // 在客户端初始化 Mermaid，但不自动渲染
     if (!import.meta.env.SSR) {
