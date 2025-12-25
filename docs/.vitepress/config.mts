@@ -78,6 +78,7 @@ export default withMermaid(
               { text: '引力', link: '/物理学/力学/引力' },
               {
                 text: '静力学 ⚖️',
+                collapsed: true,
                 items: [
                   { text: '一般原则', link: '/物理学/力学/静力学/一般原则' },
                   { text: '力向量', link: '/物理学/力学/静力学/力向量' },
@@ -95,10 +96,11 @@ export default withMermaid(
             ],
           },
           {
-            text: '电磁学',
+            text: '电磁学',            
             items: [
               {
                 text: '电路基础 💡',
+                collapsed: true,
                 items: [
                   { text: '基本概念', link: '/物理学/电磁学/电路基础/基本概念' },
                   { text: '电路理论', link: '/物理学/电磁学/电路基础/电路理论' },
@@ -167,7 +169,18 @@ export default withMermaid(
 
       socialLinks: [
         { icon: 'github', link: 'https://github.com/MatsubaraSoda/Notebook' }
-      ]
+      ],
+
+      editLink: {
+        // pattern: 这是链接生成的模版
+        // :path 会被自动替换为当前页面的 markdown 文件路径 (例如 guide/getting-started.md)
+        // '/blob/' 表示查看源码        
+        pattern: 'https://github.com/MatsubaraSoda/PhysicsNotebook/blob/main/docs/:path?plain=1',
+        text: '查看源码'
+        // '/edit/' 表示编辑源码
+        // pattern: 'https://github.com/MatsubaraSoda/PhysicsNotebook/edit/main/docs/:path',
+        // text: '编辑源码'
+      }
 
     },
 
