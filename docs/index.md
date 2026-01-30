@@ -17,7 +17,7 @@ hero:
       text: 电路基础
       link: /物理学/电磁学/电路基础/基本概念和工具
     - theme: alt
-      text: 光学（学习中）
+      text: 光学（Learning）
       link: /物理学/电磁学/光学/波动
 
 features:
