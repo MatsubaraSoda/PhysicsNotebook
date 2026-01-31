@@ -125,6 +125,7 @@ export default withMermaid(
                 collapsed: true,
                 items: [
                   { text: '波动', link: '/物理学/电磁学/光学/波动' },
+                  { text: '电磁学理论、光子和光', link: '/物理学/电磁学/光学/电磁学理论、光子和光' },
                 ]
               }
             ]
