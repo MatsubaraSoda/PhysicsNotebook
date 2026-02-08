@@ -175,7 +175,7 @@ useMathJax()
       $$
     </p>
     <p :class="['text-lg leading-relaxed pb-2']">微分形式展开</p>
-    <p>Faraday’s Law:</p>
+    <p>Faraday's Law:</p>
     <p>
       $$
       \begin{aligned}
@@ -185,7 +185,7 @@ useMathJax()
       \end{aligned}
       $$
     </p>
-    <p>Ampères’s Law:</p>
+    <p>Ampères's Law:</p>
     <p>
       $$
       \begin{aligned}
@@ -195,7 +195,7 @@ useMathJax()
       \end{aligned}
       $$
     </p>
-    <p>Gauss’s Law:</p>
+    <p>Gauss's Law:</p>
     <p>
       $$
       \frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z} = 0
@@ -211,13 +211,13 @@ useMathJax()
     <p :class="['text-lg leading-relaxed pb-2']">Del 算子</p>
     <p>
       $$
-      \boldsymbol{\nabla} = \mathbf{i} \frac{\partial}{\partial x} + \mathbf{j} \frac{\partial}{\partial y} + \mathbf{k} \frac{\partial}{\partial z} 
+      \boldsymbol{\nabla} = \mathbf{\hat{i}} \frac{\partial}{\partial x} + \mathbf{\hat{j}} \frac{\partial}{\partial y} + \mathbf{\hat{k}} \frac{\partial}{\partial z} 
       $$
     </p>
     <p :class="['text-lg leading-relaxed pb-2']">给定电场</p>
     <p>
       $$
-      \mathbf{E} = E_x \mathbf{i} + E_y \mathbf{j} + E_z \mathbf{k}
+      \mathbf{E} = E_x \mathbf{\hat{i}} + E_y \mathbf{\hat{j}} + E_z \mathbf{\hat{k}}
       $$
     </p>
     <p :class="['text-lg leading-relaxed pb-2']">散度</p>
@@ -243,9 +243,9 @@ useMathJax()
     <p>
       $$
       \begin{aligned}
-      \text{curl}\, \mathbf{E} = \boldsymbol{\nabla} \times \mathbf{E} &= \left( \mathbf{i} \frac{\partial}{\partial x} + \mathbf{j} \frac{\partial}{\partial y} + \mathbf{k} \frac{\partial}{\partial z} \right) \times \left( E_x \mathbf{i} + E_y \mathbf{j} + E_z \mathbf{k} \right)
+      \text{curl}\, \mathbf{E} = \boldsymbol{\nabla} \times \mathbf{E} &= \left( \mathbf{\hat{i}} \frac{\partial}{\partial x} + \mathbf{\hat{j}} \frac{\partial}{\partial y} + \mathbf{\hat{k}} \frac{\partial}{\partial z} \right) \times \left( E_x \mathbf{\hat{i}} + E_y \mathbf{\hat{j}} + E_z \mathbf{\hat{k}} \right)
       \\[8pt]
-      &= \left( \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} \right) \mathbf{i} + \left( \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} \right) \mathbf{j} + \left( \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} \right) \mathbf{k} 
+      &= \left( \frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} \right) \mathbf{\hat{i}} + \left( \frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} \right) \mathbf{\hat{j}} + \left( \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} \right) \mathbf{\hat{k}} 
       \end{aligned}
       $$
     </p>

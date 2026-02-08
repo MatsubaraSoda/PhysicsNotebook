@@ -14,6 +14,7 @@ docs/.vitepress/cache/
 apps/electromagnetic-theory/dist
 apps/electromagnetic-theory/dist-ssr
 apps/electromagnetic-theory/coverage
+docs/public/apps/
 
 # Vercel 的构建输出缓存
 .vercel/output/
