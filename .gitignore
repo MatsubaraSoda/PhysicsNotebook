@@ -1,24 +1,76 @@
+# ============================================
+# 依赖和构建输出
+# ============================================
 # node_modules - 安装的依赖包
 node_modules/
 
-# 构建输出目录（默认是 .vitepress/dist）
+# VitePress 构建输出目录
 docs/.vitepress/dist/
 
 # 本地缓存文件
 docs/.vitepress/cache/
 
-# 操作系统和编辑器生成的文件
-.DS_Store
-Thumbs.db
-*.log
+# 子项目构建输出
+apps/electromagnetic-theory/dist
+apps/electromagnetic-theory/dist-ssr
+apps/electromagnetic-theory/coverage
 
 # Vercel 的构建输出缓存
 .vercel/output/
 
-# VSCode 设置（可选）
-.vscode/
+# ============================================
+# 日志文件
+# ============================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# 其他文件夹
+# ============================================
+# 操作系统文件
+# ============================================
+.DS_Store
+Thumbs.db
+
+# ============================================
+# 编辑器配置
+# ============================================
+# VSCode - 保留 extensions.json 以便团队共享推荐扩展
+.vscode/*
+!.vscode/extensions.json
+.idea
+.cursor/
+
+# 其他编辑器文件
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ============================================
+# 构建和缓存文件
+# ============================================
+*.tsbuildinfo
+.eslintcache
+*.local
+
+# ============================================
+# 测试相关
+# ============================================
+# Cypress
+apps/electromagnetic-theory/cypress/videos/
+apps/electromagnetic-theory/cypress/screenshots/
+
+# Vitest
+apps/electromagnetic-theory/__screenshots__/
+
+# ============================================
+# 项目特定文件夹
+# ============================================
 playground/
 pdf/
 docs/playground/
