@@ -104,7 +104,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .iframe-full-height-wrapper {
-  width: 105%;
+  width: 100%;
 }
 
 .iframe-full-height {
