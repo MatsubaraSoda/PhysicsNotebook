@@ -62,8 +62,8 @@ rt {
   -ms-user-select: none;
 }
 
-/* mathjax3 cdn */
-/* 解决 MathJax 块级公式过高时出现垂直滚动条的问题 */
+/* mathjax4 cdn */
+/* 块级公式：通过 overflow: visible 避免公式过高时出现垂直滚动条 */
 mjx-container[jax="CHTML"][display="true"] {
-  overflow-y: visible;
+  overflow: visible;
 }

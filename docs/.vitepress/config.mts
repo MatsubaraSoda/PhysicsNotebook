@@ -194,9 +194,33 @@ export default withMermaid(
 
     },
 
-    // 数学公式
+    // 数学公式（光学目录下禁用）
     markdown: {
       math: true,
+      config: (md) => {
+        const OPTICS_PATH = '物理学/电磁学/光学';
+        const shouldDisableMath = (env: { relativePath?: string }) =>
+          env?.relativePath?.includes(OPTICS_PATH) ?? false;
+
+        const origInline = md.renderer.rules.math_inline;
+        const origBlock = md.renderer.rules.math_block;
+        if (origInline) {
+          md.renderer.rules.math_inline = (tokens, idx, opts, env, self) => {
+            if (shouldDisableMath(env ?? {})) {
+              return `$${tokens[idx].content}$`;
+            }
+            return origInline(tokens, idx, opts, env, self);
+          };
+        }
+        if (origBlock) {
+          md.renderer.rules.math_block = (tokens, idx, opts, env, self) => {
+            if (shouldDisableMath(env ?? {})) {
+              return `<div>$$\n${tokens[idx].content}\n$$</div>\n`;
+            }
+            return origBlock(tokens, idx, opts, env, self);
+          };
+        }
+      },
     },
     // markdown: {
     //   config: (md) => {
@@ -212,6 +236,21 @@ export default withMermaid(
     // optionally set additional config for plugin itself with MermaidPluginConfig
     mermaidPlugin: {
       class: "mermaid my-class", // set additional css classes for parent container
+    },
+
+    // 光学路径文章注入 MathJax CDN
+    transformPageData(pageData) {
+      const OPTICS_PATH = '物理学/电磁学/光学';
+      if (pageData.relativePath?.includes(OPTICS_PATH)) {
+        pageData.frontmatter ??= {};
+        pageData.frontmatter.head ??= [];
+        pageData.frontmatter.head.push(
+          ['script', {}, `MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] } };`],
+          ['script', { defer: '', src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js' }],
+          // 确保 dev 模式下 HMR 更新后数学公式能正确渲染，并避免 mjx-container、table 出现滚动条
+          ['script', { defer: '' }, `(function(){function applyOverflow(){document.querySelectorAll("mjx-container").forEach(function(el){el.style.overflowY="visible"});document.querySelectorAll(".vp-doc table").forEach(function(el){el.style.overflow="visible"})}function needsTypeset(){var doc=document.querySelector(".vp-doc")||document.body;return doc&&doc.innerHTML.indexOf("$$")>=0&&!doc.querySelector("mjx-container")}function runTypeset(){var M=window.MathJax;if(M&&M.typesetPromise){var el=document.querySelector(".vp-doc");M.typesetPromise(el?[el]:void 0).then(applyOverflow)}else{applyOverflow()}}var tid;function onContentChange(){clearTimeout(tid);tid=setTimeout(function(){needsTypeset()?runTypeset():applyOverflow()},50)}var obs=new MutationObserver(onContentChange);function init(){if(!document.body)return;obs.observe(document.body,{childList:!0,subtree:!0});onContentChange()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",init):init()})();`]
+        );
+      }
     },
     
   })
