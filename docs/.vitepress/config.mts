@@ -238,15 +238,15 @@ export default withMermaid(
       class: "mermaid my-class", // set additional css classes for parent container
     },
 
-    // 光学路径文章注入 MathJax CDN
+    // 光学路径文章注入 MathJax（本地完全离线）
     transformPageData(pageData) {
       const OPTICS_PATH = '物理学/电磁学/光学';
       if (pageData.relativePath?.includes(OPTICS_PATH)) {
         pageData.frontmatter ??= {};
         pageData.frontmatter.head ??= [];
         pageData.frontmatter.head.push(
-          ['script', {}, `MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] } };`],
-          ['script', { defer: '', src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js' }],
+          ['script', {}, `window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, output: { fontPath: "/mathjax/fonts/mathjax-newcm-font" }, options: { enableEnrichment: false, enableSpeech: false, enableBraille: false, enableComplexity: false, menuOptions: { settings: { enrich: false, speech: false, braille: false, collapsible: false, assistiveMml: false } } } };`],
+          ['script', { defer: '', src: '/mathjax/MathJax-4.0.0/tex-chtml-nofont.js' }],
           // 确保 dev 模式下 HMR 更新后数学公式能正确渲染，并避免 mjx-container、table 出现滚动条
           ['script', { defer: '' }, `(function(){function applyOverflow(){document.querySelectorAll("mjx-container").forEach(function(el){el.style.overflowY="visible"});document.querySelectorAll(".vp-doc table").forEach(function(el){el.style.overflow="visible"})}function needsTypeset(){var doc=document.querySelector(".vp-doc")||document.body;return doc&&doc.innerHTML.indexOf("$$")>=0&&!doc.querySelector("mjx-container")}function runTypeset(){var M=window.MathJax;if(M&&M.typesetPromise){var el=document.querySelector(".vp-doc");M.typesetPromise(el?[el]:void 0).then(applyOverflow)}else{applyOverflow()}}var tid;function onContentChange(){clearTimeout(tid);tid=setTimeout(function(){needsTypeset()?runTypeset():applyOverflow()},50)}var obs=new MutationObserver(onContentChange);function init(){if(!document.body)return;obs.observe(document.body,{childList:!0,subtree:!0});onContentChange()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",init):init()})();`]
         );
