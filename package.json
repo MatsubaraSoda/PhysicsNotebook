@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/prismjs": "^1.26.6",
     "mermaid": "^11.9.0",
     "vitepress": "^1.6.3",
     "vitepress-plugin-mermaid": "^2.0.17"
@@ -17,6 +18,8 @@
     "mathjax-full": "^3.2.2",
     "medium-zoom": "^1.1.0",
     "postcss-cli": "^11.0.1",
-    "postcss-prefix-selector": "^2.1.1"
+    "postcss-prefix-selector": "^2.1.1",
+    "prismjs": "^1.30.0",
+    "vue-prism-editor": "^2.0.0-alpha.2"
   }
 }
