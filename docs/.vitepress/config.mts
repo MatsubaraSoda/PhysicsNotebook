@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 // .vitepress/config.js
 
 // https://emersonbottero.github.io/vitepress-plugin-mermaid/
@@ -6,130 +6,201 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 
 // import mathjax3 from 'markdown-it-mathjax3'
 
-export default withMermaid(
+/** docs 下以此前缀开头的 Markdown：构建期不经内置 math，由页内 MathJax 4 排版 */
+const PHYSICS_MD_PREFIX = "物理学/";
+function isPhysicsMarkdown(relativePath?: string): boolean {
+  const p = relativePath?.replace(/\\/g, "/");
+  return p?.startsWith(PHYSICS_MD_PREFIX) ?? false;
+}
 
+export default withMermaid(
   // https://vitepress.dev/reference/site-config
   defineConfig({
-    lang: 'zh-CN',
-    title: '物理学笔记',
-    description: '',
-    head: [
-      ['link', { rel: 'icon', href: '/logo.png' }],
-    ],
+    lang: "zh-CN",
+    title: "物理学笔记",
+    description: "",
+    head: [["link", { rel: "icon", href: "/logo.png" }]],
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
       nav: [
-        { text: '主页', link: '/' },
-        { text: '旧博客', link: 'https://matsubarasoda.github.io/' },
+        { text: "主页", link: "/" },
+        { text: "旧博客", link: "https://matsubarasoda.github.io/" },
       ],
 
-      logo: '/logo.png',
+      logo: "/logo.png",
 
       // https://vitepress.dev/zh/reference/default-theme-config#docfooter
       docFooter: {
-        prev: '上一页',
-        next: '下一页'
+        prev: "上一页",
+        next: "下一页",
       },
-      darkModeSwitchLabel: '主题',
-      lightModeSwitchTitle: '关闭夜间模式',
-      darkModeSwitchTitle: '打开夜间模式',
-      outlineTitle: '页面导航',
-      returnToTopLabel: '返回顶部',
+      darkModeSwitchLabel: "主题",
+      lightModeSwitchTitle: "关闭夜间模式",
+      darkModeSwitchTitle: "打开夜间模式",
+      outlineTitle: "页面导航",
+      returnToTopLabel: "返回顶部",
       outline: {
-        level: [2, 4]
+        level: [2, 4],
       },
 
       // 添加本地搜索功能
       search: {
-        provider: 'local',
+        provider: "local",
         options: {
           locales: {
             root: {
               translations: {
                 button: {
-                  buttonText: '搜索文档',
-                  buttonAriaLabel: '搜索文档'
+                  buttonText: "搜索文档",
+                  buttonAriaLabel: "搜索文档",
                 },
                 modal: {
-                  noResultsText: '无法找到相关结果',
-                  resetButtonTitle: '清除查询条件',
+                  noResultsText: "无法找到相关结果",
+                  resetButtonTitle: "清除查询条件",
                   footer: {
-                    selectText: '选择',
-                    navigateText: '切换',
-                    closeText: '关闭'
-                  }
-                }
-              }
-            }
-          }
-        }
+                    selectText: "选择",
+                    navigateText: "切换",
+                    closeText: "关闭",
+                  },
+                },
+              },
+            },
+          },
+        },
       },
 
       sidebar: {
-        '/物理学': [
+        "/物理学": [
           {
-            text: '力学',
+            text: "力学",
             // link: '/物理学/力学/质点运动学',
             items: [
-              { text: '质点运动学', link: '/物理学/力学/质点运动学' },
-              { text: '质点动力学', link: '/物理学/力学/质点动力学' },
-              { text: '刚体的平动与转动', link: '/物理学/力学/刚体的平动与转动' },
-              { text: '中心力', link: '/物理学/力学/中心力' },
-              { text: '引力', link: '/物理学/力学/引力' },
+              { text: "质点运动学", link: "/物理学/力学/质点运动学" },
+              { text: "质点动力学", link: "/物理学/力学/质点动力学" },
               {
-                text: '静力学 ⚖️',
+                text: "刚体的平动与转动",
+                link: "/物理学/力学/刚体的平动与转动",
+              },
+              { text: "中心力", link: "/物理学/力学/中心力" },
+              { text: "引力", link: "/物理学/力学/引力" },
+              {
+                text: "静力学 ⚖️",
                 collapsed: true,
                 items: [
-                  { text: '一般原则', link: '/物理学/力学/静力学/一般原则' },
-                  { text: '力向量', link: '/物理学/力学/静力学/力向量' },
-                  { text: '质点的平衡', link: '/物理学/力学/静力学/质点的平衡' },
-                  { text: '力系的合力与合力矩', link: '/物理学/力学/静力学/力系的合力与合力矩' },
-                  { text: '刚体的平衡', link: '/物理学/力学/静力学/刚体的平衡' },
-                  { text: '结构分析', link: '/物理学/力学/静力学/结构分析' },
-                  { text: '内力', link: '/物理学/力学/静力学/内力' },
-                  { text: '摩擦力', link: '/物理学/力学/静力学/摩擦力' },
-                  { text: '重心和质心', link: '/物理学/力学/静力学/重心和质心' },
-                  { text: '惯性矩', link: '/物理学/力学/静力学/惯性矩'},
-                  { text: '虚功', link: '/物理学/力学/静力学/虚功'}
+                  { text: "一般原则", link: "/物理学/力学/静力学/一般原则" },
+                  { text: "力向量", link: "/物理学/力学/静力学/力向量" },
+                  {
+                    text: "质点的平衡",
+                    link: "/物理学/力学/静力学/质点的平衡",
+                  },
+                  {
+                    text: "力系的合力与合力矩",
+                    link: "/物理学/力学/静力学/力系的合力与合力矩",
+                  },
+                  {
+                    text: "刚体的平衡",
+                    link: "/物理学/力学/静力学/刚体的平衡",
+                  },
+                  { text: "结构分析", link: "/物理学/力学/静力学/结构分析" },
+                  { text: "内力", link: "/物理学/力学/静力学/内力" },
+                  { text: "摩擦力", link: "/物理学/力学/静力学/摩擦力" },
+                  {
+                    text: "重心和质心",
+                    link: "/物理学/力学/静力学/重心和质心",
+                  },
+                  { text: "惯性矩", link: "/物理学/力学/静力学/惯性矩" },
+                  { text: "虚功", link: "/物理学/力学/静力学/虚功" },
                 ],
               },
             ],
           },
           {
-            text: '电磁学',            
+            text: "电磁学",
             items: [
               {
-                text: '电路基础 💡',
+                text: "电路基础 💡",
                 collapsed: true,
                 items: [
-                  { text: '基本概念和工具', link: '/物理学/电磁学/电路基础/基本概念和工具' },
-                  { text: '电路理论', link: '/物理学/电磁学/电路基础/电路理论' },
-                  { text: '运算放大器', link: '/物理学/电磁学/电路基础/运算放大器' },
-                  { text: '电容器和电感器', link: '/物理学/电磁学/电路基础/电容器和电感器' },
-                  { text: '一阶电路', link: '/物理学/电磁学/电路基础/一阶电路' },
-                  { text: '二阶电路', link: '/物理学/电磁学/电路基础/二阶电路' },
-                  { text: '正弦量与相量', link: '/物理学/电磁学/电路基础/正弦量与相量' },
-                  { text: '交流电路功率分析', link: '/物理学/电磁学/电路基础/交流电路功率分析' },
-                  { text: '三相电路', link: '/物理学/电磁学/电路基础/三相电路' },
-                  { text: '磁耦合电路', link: '/物理学/电磁学/电路基础/磁耦合电路' },
-                  { text: '频率响应', link: '/物理学/电磁学/电路基础/频率响应' },
-                  { text: '拉普拉斯变换入门', link: '/物理学/电磁学/电路基础/拉普拉斯变换入门' },
-                  { text: '拉普拉斯变换应用', link: '/物理学/电磁学/电路基础/拉普拉斯变换应用' },
-                  { text: '傅里叶级数', link: '/物理学/电磁学/电路基础/傅里叶级数' },
-                  { text: '傅里叶变换', link: '/物理学/电磁学/电路基础/傅里叶变换' },
-                  { text: '双端口网络', link: '/物理学/电磁学/电路基础/双端口网络' },
-                ]
+                  {
+                    text: "基本概念和工具",
+                    link: "/物理学/电磁学/电路基础/基本概念和工具",
+                  },
+                  {
+                    text: "电路理论",
+                    link: "/物理学/电磁学/电路基础/电路理论",
+                  },
+                  {
+                    text: "运算放大器",
+                    link: "/物理学/电磁学/电路基础/运算放大器",
+                  },
+                  {
+                    text: "电容器和电感器",
+                    link: "/物理学/电磁学/电路基础/电容器和电感器",
+                  },
+                  {
+                    text: "一阶电路",
+                    link: "/物理学/电磁学/电路基础/一阶电路",
+                  },
+                  {
+                    text: "二阶电路",
+                    link: "/物理学/电磁学/电路基础/二阶电路",
+                  },
+                  {
+                    text: "正弦量与相量",
+                    link: "/物理学/电磁学/电路基础/正弦量与相量",
+                  },
+                  {
+                    text: "交流电路功率分析",
+                    link: "/物理学/电磁学/电路基础/交流电路功率分析",
+                  },
+                  {
+                    text: "三相电路",
+                    link: "/物理学/电磁学/电路基础/三相电路",
+                  },
+                  {
+                    text: "磁耦合电路",
+                    link: "/物理学/电磁学/电路基础/磁耦合电路",
+                  },
+                  {
+                    text: "频率响应",
+                    link: "/物理学/电磁学/电路基础/频率响应",
+                  },
+                  {
+                    text: "拉普拉斯变换入门",
+                    link: "/物理学/电磁学/电路基础/拉普拉斯变换入门",
+                  },
+                  {
+                    text: "拉普拉斯变换应用",
+                    link: "/物理学/电磁学/电路基础/拉普拉斯变换应用",
+                  },
+                  {
+                    text: "傅里叶级数",
+                    link: "/物理学/电磁学/电路基础/傅里叶级数",
+                  },
+                  {
+                    text: "傅里叶变换",
+                    link: "/物理学/电磁学/电路基础/傅里叶变换",
+                  },
+                  {
+                    text: "双端口网络",
+                    link: "/物理学/电磁学/电路基础/双端口网络",
+                  },
+                ],
               },
               {
-                text: '光学 🌈',
+                text: "光学 🌈",
                 collapsed: true,
                 items: [
-                  { text: '波动', link: '/物理学/电磁学/光学/波动' },
-                  { text: '电磁学理论、光子和光', link: '/物理学/电磁学/光学/电磁学理论、光子和光' },
-                ]
-              }
-            ]
-          }
+                  { text: "波动", link: "/物理学/电磁学/光学/波动" },
+                  {
+                    text: "电磁学理论、光子和光",
+                    link: "/物理学/电磁学/光学/电磁学理论、光子和光",
+                  },
+                  { text: "光的传播", link: "/物理学/电磁学/光学/光的传播" },
+                ],
+              },
+            ],
+          },
         ],
         // 暂时注释掉化学和日语的侧边栏配置
         // '/化学': [
@@ -175,32 +246,29 @@ export default withMermaid(
         // ],
       },
 
-
-
       socialLinks: [
-        { icon: 'github', link: 'https://github.com/MatsubaraSoda/Notebook' }
+        { icon: "github", link: "https://github.com/MatsubaraSoda/Notebook" },
       ],
 
       editLink: {
         // pattern: 这是链接生成的模版
         // :path 会被自动替换为当前页面的 markdown 文件路径 (例如 guide/getting-started.md)
-        // '/blob/' 表示查看源码        
-        pattern: 'https://github.com/MatsubaraSoda/PhysicsNotebook/blob/main/docs/:path?plain=1',
-        text: '查看源码'
+        // '/blob/' 表示查看源码
+        pattern:
+          "https://github.com/MatsubaraSoda/PhysicsNotebook/blob/main/docs/:path?plain=1",
+        text: "查看源码",
         // '/edit/' 表示编辑源码
         // pattern: 'https://github.com/MatsubaraSoda/PhysicsNotebook/edit/main/docs/:path',
         // text: '编辑源码'
-      }
-
+      },
     },
 
-    // 数学公式（光学目录下禁用）
+    // 数学公式（物理学目录下禁用内置 math，改由页内 MathJax 4）
     markdown: {
       math: true,
       config: (md) => {
-        const OPTICS_PATH = '物理学/电磁学/光学';
         const shouldDisableMath = (env: { relativePath?: string }) =>
-          env?.relativePath?.includes(OPTICS_PATH) ?? false;
+          isPhysicsMarkdown(env?.relativePath);
 
         const origInline = md.renderer.rules.math_inline;
         const origBlock = md.renderer.rules.math_block;
@@ -238,21 +306,29 @@ export default withMermaid(
       class: "mermaid my-class", // set additional css classes for parent container
     },
 
-    // 光学路径文章注入 MathJax（本地完全离线）
+    // 物理学路径文章注入 MathJax 4（docs/public/mathjax，本地完全离线）
     transformPageData(pageData) {
-      const OPTICS_PATH = '物理学/电磁学/光学';
-      if (pageData.relativePath?.includes(OPTICS_PATH)) {
+      if (isPhysicsMarkdown(pageData.relativePath)) {
         pageData.frontmatter ??= {};
         pageData.frontmatter.head ??= [];
         pageData.frontmatter.head.push(
-          ['script', {}, `window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, output: { fontPath: "/mathjax/fonts/mathjax-newcm-font" }, options: { enableEnrichment: false, enableSpeech: false, enableBraille: false, enableComplexity: false, menuOptions: { settings: { enrich: false, speech: false, braille: false, collapsible: false, assistiveMml: false } } } };`],
-          ['script', { defer: '', src: '/mathjax/MathJax-4.0.0/tex-chtml-nofont.js' }],
+          [
+            "script",
+            {},
+            `window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, output: { fontPath: "/mathjax/fonts/mathjax-newcm-font" }, options: { enableEnrichment: false, enableSpeech: false, enableBraille: false, enableComplexity: false, menuOptions: { settings: { enrich: false, speech: false, braille: false, collapsible: false, assistiveMml: false } } } };`,
+          ],
+          [
+            "script",
+            { defer: "", src: "/mathjax/MathJax-4.0.0/tex-chtml-nofont.js" },
+          ],
           // 确保 dev 模式下 HMR 更新后数学公式能正确渲染，并避免 mjx-container、table 出现滚动条
-          ['script', { defer: '' }, `(function(){function applyOverflow(){document.querySelectorAll("mjx-container").forEach(function(el){el.style.overflowY="visible"});document.querySelectorAll(".vp-doc table").forEach(function(el){el.style.overflow="visible"})}function needsTypeset(){var doc=document.querySelector(".vp-doc")||document.body;return doc&&doc.innerHTML.indexOf("$$")>=0&&!doc.querySelector("mjx-container")}function runTypeset(){var M=window.MathJax;if(M&&M.typesetPromise){var el=document.querySelector(".vp-doc");M.typesetPromise(el?[el]:void 0).then(applyOverflow)}else{applyOverflow()}}var tid;function onContentChange(){clearTimeout(tid);tid=setTimeout(function(){needsTypeset()?runTypeset():applyOverflow()},50)}var obs=new MutationObserver(onContentChange);function init(){if(!document.body)return;obs.observe(document.body,{childList:!0,subtree:!0});onContentChange()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",init):init()})();`]
+          [
+            "script",
+            { defer: "" },
+            `(function(){function applyOverflow(){document.querySelectorAll("mjx-container").forEach(function(el){el.style.overflowY="visible"});document.querySelectorAll(".vp-doc table").forEach(function(el){el.style.overflow="visible"})}function needsTypeset(){var doc=document.querySelector(".vp-doc")||document.body;return doc&&doc.innerHTML.indexOf("$$")>=0&&!doc.querySelector("mjx-container")}function runTypeset(){var M=window.MathJax;if(M&&M.typesetPromise){var el=document.querySelector(".vp-doc");M.typesetPromise(el?[el]:void 0).then(applyOverflow)}else{applyOverflow()}}var tid;function onContentChange(){clearTimeout(tid);tid=setTimeout(function(){needsTypeset()?runTypeset():applyOverflow()},50)}var obs=new MutationObserver(onContentChange);function init(){if(!document.body)return;obs.observe(document.body,{childList:!0,subtree:!0});onContentChange()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",init):init()})();`,
+          ],
         );
       }
     },
-    
-  })
-
-)
+  }),
+);

@@ -10,12 +10,6 @@ docs/.vitepress/dist/
 # 本地缓存文件
 docs/.vitepress/cache/
 
-# 子项目构建输出
-apps/electromagnetic-theory/dist
-apps/electromagnetic-theory/dist-ssr
-apps/electromagnetic-theory/coverage
-docs/public/apps/
-
 # Vercel 的构建输出缓存
 .vercel/output/
 
@@ -60,28 +54,10 @@ Thumbs.db
 *.local
 
 # ============================================
-# 测试相关
+# 本地私有内容（不入库）
 # ============================================
-# Cypress
-apps/electromagnetic-theory/cypress/videos/
-apps/electromagnetic-theory/cypress/screenshots/
-
-# Vitest
-apps/electromagnetic-theory/__screenshots__/
-
-# ============================================
-# 项目特定文件夹
-# ============================================
-playground/
-pdf/
-docs/playground/
-tmp/
-
-# 暂时忽略化学和日语笔记
-docs/化学/
-docs/日语/
-docs/public/化学/
-docs/public/日语/
-
-# 日语相关组件（这个组件专门用于日语词汇悬浮提示）
-docs/.vitepress/theme/components/VocabHover.vue
+# apps/electromagnetic-theory 及其构建产物（docs/public/apps 等）
+# playground、pdf、tmp
+# 化学 / 日语笔记及 public 静态资源
+# VocabHover.vue 等仅本地使用的主题组件
+private/
