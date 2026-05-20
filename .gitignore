@@ -53,6 +53,11 @@ Thumbs.db
 .eslintcache
 *.local
 
+# 本地 / Vercel 密钥（勿提交）
+.env
+.env.local
+.env.*.local
+
 # ============================================
 # 本地私有内容（不入库）
 # ============================================
@@ -61,3 +66,4 @@ Thumbs.db
 # 化学 / 日语笔记及 public 静态资源
 # VocabHover.vue 等仅本地使用的主题组件
 private/
+.vercel

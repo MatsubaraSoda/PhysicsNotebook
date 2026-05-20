@@ -7,9 +7,7 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev docs --port 4003",
-    "apps:install": "npm --prefix apps/electromagnetic-theory install",
-    "apps:build": "npm --prefix apps/electromagnetic-theory run build",
-    "docs:build": "npm run apps:install && npm run apps:build && vitepress build docs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {

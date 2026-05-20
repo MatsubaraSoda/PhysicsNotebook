@@ -6,11 +6,11 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 
 // import mathjax3 from 'markdown-it-mathjax3'
 
-/** docs 下以此前缀开头的 Markdown：构建期不经内置 math，由页内 MathJax 4 排版 */
-const PHYSICS_MD_PREFIX = "物理学/";
-function isPhysicsMarkdown(relativePath?: string): boolean {
+/** 光学路径文章：构建期不经内置 math，由页内 MathJax 4 排版 */
+const OPTICS_PATH = "物理学/电磁学/光学";
+function shouldDisableMath(relativePath?: string): boolean {
   const p = relativePath?.replace(/\\/g, "/");
-  return p?.startsWith(PHYSICS_MD_PREFIX) ?? false;
+  return p?.includes(OPTICS_PATH) ?? false;
 }
 
 export default withMermaid(
@@ -263,18 +263,18 @@ export default withMermaid(
       },
     },
 
-    // 数学公式（物理学目录下禁用内置 math，改由页内 MathJax 4）
+    // 数学公式（光学目录下禁用）
     markdown: {
       math: true,
       config: (md) => {
-        const shouldDisableMath = (env: { relativePath?: string }) =>
-          isPhysicsMarkdown(env?.relativePath);
+        const shouldDisableMathEnv = (env: { relativePath?: string }) =>
+          shouldDisableMath(env?.relativePath);
 
         const origInline = md.renderer.rules.math_inline;
         const origBlock = md.renderer.rules.math_block;
         if (origInline) {
           md.renderer.rules.math_inline = (tokens, idx, opts, env, self) => {
-            if (shouldDisableMath(env ?? {})) {
+            if (shouldDisableMathEnv(env ?? {})) {
               return `$${tokens[idx].content}$`;
             }
             return origInline(tokens, idx, opts, env, self);
@@ -282,7 +282,7 @@ export default withMermaid(
         }
         if (origBlock) {
           md.renderer.rules.math_block = (tokens, idx, opts, env, self) => {
-            if (shouldDisableMath(env ?? {})) {
+            if (shouldDisableMathEnv(env ?? {})) {
               return `<div>$$\n${tokens[idx].content}\n$$</div>\n`;
             }
             return origBlock(tokens, idx, opts, env, self);
@@ -306,9 +306,21 @@ export default withMermaid(
       class: "mermaid my-class", // set additional css classes for parent container
     },
 
+    // 本地 docs:dev 将 /api 转发到 vercel dev，供 CodeRunner 调用 run-code-sync
+    vite: {
+      server: {
+        proxy: {
+          "/api": {
+            target: "http://localhost:3000",
+            changeOrigin: true,
+          },
+        },
+      },
+    },
+
     // 物理学路径文章注入 MathJax 4（docs/public/mathjax，本地完全离线）
     transformPageData(pageData) {
-      if (isPhysicsMarkdown(pageData.relativePath)) {
+      if (shouldDisableMath(pageData.relativePath)) {
         pageData.frontmatter ??= {};
         pageData.frontmatter.head ??= [];
         pageData.frontmatter.head.push(
