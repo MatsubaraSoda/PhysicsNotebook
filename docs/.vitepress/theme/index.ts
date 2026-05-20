@@ -14,6 +14,7 @@ import IframeFullHeight from './components/IframeFullHeight.vue'
 import CodeEditor from './components/CodeEditor.vue'
 import CodeOutput from './components/CodeOutput.vue'
 import CodeRunner from './components/CodeRunner.vue'
+import CodeFrame from './components/CodeFrame.vue'
 
 // --- VitePress 主题导出 ---
 
@@ -28,6 +29,7 @@ export default {
     app.component('CodeEditor', CodeEditor);
     app.component('CodeOutput', CodeOutput);
     app.component('CodeRunner', CodeRunner);
+    app.component('CodeFrame', CodeFrame);
 
     // 在客户端初始化 Mermaid，但不自动渲染
     if (!import.meta.env.SSR) {
