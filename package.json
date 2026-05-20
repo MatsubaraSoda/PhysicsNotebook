@@ -6,6 +6,8 @@
     "vitepress-plugin-mermaid": "^2.0.17"
   },
   "scripts": {
+    "api:dev": "python scripts/serve-run-code-sync.py",
+    "vercel:dev": "vercel dev",
     "docs:dev": "vitepress dev docs --port 4003",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"

@@ -306,12 +306,12 @@ export default withMermaid(
       class: "mermaid my-class", // set additional css classes for parent container
     },
 
-    // 本地 docs:dev 将 /api 转发到 vercel dev，供 CodeRunner 调用 run-code-sync
+    // 联调 CodeRunner：终端 A npm run api:dev (8787)，终端 B npm run docs:dev；/api 代理到本地 Python 服务
     vite: {
       server: {
         proxy: {
           "/api": {
-            target: "http://localhost:3000",
+            target: "http://127.0.0.1:8787",
             changeOrigin: true,
           },
         },
