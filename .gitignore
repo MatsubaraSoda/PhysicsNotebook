@@ -68,3 +68,12 @@ api/__pycache__/
 # VocabHover.vue 等仅本地使用的主题组件
 private/
 .vercel
+
+# ============================================
+# LaTeX 编译中间产物（docs/public/物理学）
+# ============================================
+docs/public/物理学/**/*.aux
+docs/public/物理学/**/*.fdb_latexmk
+docs/public/物理学/**/*.fls
+docs/public/物理学/**/*.log
+docs/public/物理学/**/*.synctex.gz
