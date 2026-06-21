@@ -1,0 +1,95 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}           % 坐标插值、垂足等
+\usetikzlibrary{angles, quotes} % 角度标注
+\usetikzlibrary{arrows.meta}    % 箭头样式
+
+\newcommand{\dotRadius}{1.5pt}
+
+\usetikzlibrary{decorations.markings}
+\tikzset{
+    ray/.style={
+        decoration={
+            markings,
+            mark=at position 0.6 with {\arrow{Stealth}}
+        },
+        postaction={decorate},
+    },
+}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    every node/.style={font=\Large}
+]
+
+    % 定义半径和厚度
+    \pgfmathsetmacro{\Rone}{4}
+    \pgfmathsetmacro{\Rtwo}{3}
+    \pgfmathsetmacro{\d}{1.5}
+
+    % 定义关键坐标
+    \coordinate (S) at (-3, 0);
+    \coordinate (V_1) at (0, 0);
+    \coordinate (V_2) at ($(V_1) + (\d, 0)$);
+    \coordinate (O_1) at ($(V_1) + (\Rone, 0)$);
+    \coordinate (O_2) at ($(V_2) + (-\Rtwo, 0)$);
+
+    \coordinate (P_1) at ($(O_1) + (160:\Rone)$);
+    \coordinate (P_2) at ($(O_2) + (31.1:\Rtwo)$);
+    \coordinate (Q_1) at (intersection of P_2--P_1 and V_1--O_1);
+    \coordinate (Q_2) at (11, 0);
+
+    % 光轴
+    \draw (-8, 0) -- (13, 0);
+
+    % 绘制点
+    \filldraw (S) circle (\dotRadius) node[below left] {$S$};
+    
+    \filldraw (P_1) circle (\dotRadius) node[above left] {$P_1$};
+    \filldraw (P_2) circle (\dotRadius) node[above right] {$P_2$};
+    \filldraw (Q_1) circle (\dotRadius) node[below left] {$Q_1$};
+    \filldraw (Q_2) circle (\dotRadius) node[below right] {$Q_2$};
+    
+    \filldraw (V_1) circle (\dotRadius) node[below left] {$V_1$};
+    \filldraw (O_1) circle (\dotRadius) node[below right] {$O_1$};
+
+    \filldraw (V_2) circle (\dotRadius) node[below right] {$V_2$};
+    \filldraw (O_2) circle (\dotRadius) node[below left] {$O_2$};
+
+    % 半径
+    \draw[-{Stealth}] (O_1) -- ($(O_1) + (-110:\Rone)$) node[midway, right] {$R_1$};
+    \draw[-{Stealth}] (O_2) -- ($(O_2) + (-70:\Rtwo)$) node[midway, left] {$R_2$};
+
+    % 圆弧
+    \draw (O_1) ++(90:\Rone) arc (90:270:\Rone);
+    \draw (O_2) ++(90:\Rtwo) arc (90:-90:\Rtwo);
+
+    % 连线
+    \draw[ray] (S) -- (P_1);
+    \draw[ray] (P_1) -- (P_2);
+    \draw[dashed] (Q_1) -- (P_1);
+    \draw[ray] (P_2) -- (Q_2);
+
+    % 折射率
+    \path (V_1) -- (V_2) node[midway, below, yshift=-25pt] {$n_l$};
+    \node at ($(Q_1) + (2, -2)$) {$n_m$};
+    \node at ($(Q_2) + (-4, -2)$) {$n_m$};
+
+    % 竖线
+    \draw[thin, gray] (S) -- ++(0, -4.8);
+    \draw[thin, gray] (V_1) -- ++(0, -5.5);
+    \draw[thin, gray] (V_2) -- ++(0, -6.2);
+    \draw[thin, gray] (Q_1) -- ++(0, -6.2);
+    \draw[thin, gray] (Q_2) -- ++(0, -6.2);
+
+    % 距离标注
+    \draw[<->, >=Stealth, thin] (V_1 |- 0, -4) -- (V_2 |- 0, -4) node[midway, below] {$d$};
+    \draw[<->, >=Stealth, thin] (S |- 0, -4.5) -- (V_1 |- 0, -4.5) node[midway, below] {$s_{o1}$};
+    \draw[<->, >=Stealth, thin] (Q_1 |- 0, -5.2) -- (V_1 |- 0, -5.2) node[midway, below] {$s_{i1}$};
+    \draw[<->, >=Stealth, thin] (Q_1 |- 0, -5.9) -- (V_2 |- 0, -5.9) node[midway, below] {$s_{o2}$};
+    \draw[<->, >=Stealth, thin] (Q_2 |- 0, -5.9) -- (V_2 |- 0, -5.9) node[midway, below] {$s_{i2}$};
+
+\end{tikzpicture}
+
+\end{document}
