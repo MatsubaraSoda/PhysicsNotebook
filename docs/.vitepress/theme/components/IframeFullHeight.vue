@@ -30,7 +30,7 @@ const props = defineProps({
 
 const iframeRef = ref(null)
 const height = ref(props.minHeight)
-let intervalId = null
+let resizeObserver = null
 
 const iframeStyle = computed(() => {
   const style = {
@@ -80,24 +80,40 @@ function updateHeight() {
 function onLoad() {
   updateHeight()
 
-  // 为了兼容内部异步渲染，多测几次高度
-  let count = 0
-  if (intervalId) {
-    clearInterval(intervalId)
+  const iframe = iframeRef.value
+  if (!iframe) return
+
+  let doc
+  try {
+    doc = iframe.contentDocument || iframe.contentWindow?.document
+  } catch (e) {
+    return
   }
-  intervalId = setInterval(() => {
-    count++
+
+  if (!doc || !doc.body) return
+
+  // 清理旧的 observer
+  if (resizeObserver) {
+    resizeObserver.disconnect()
+  }
+
+  // 使用 ResizeObserver 监听 iframe 内部 body 的尺寸变化
+  resizeObserver = new ResizeObserver(() => {
     updateHeight()
-    if (count > 10) {
-      clearInterval(intervalId)
-      intervalId = null
-    }
-  }, 500)
+  })
+
+  resizeObserver.observe(doc.body)
+  
+  // 额外监听 html，因为有时候 body 高度不包含 margin
+  if (doc.documentElement) {
+    resizeObserver.observe(doc.documentElement)
+  }
 }
 
 onBeforeUnmount(() => {
-  if (intervalId) {
-    clearInterval(intervalId)
+  if (resizeObserver) {
+    resizeObserver.disconnect()
+    resizeObserver = null
   }
 })
 </script>
@@ -109,6 +125,7 @@ onBeforeUnmount(() => {
 
 .iframe-full-height {
   background-color: transparent;
+  transition: height 0.3s ease-out;
 }
 </style>
 
