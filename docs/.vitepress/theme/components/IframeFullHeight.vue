@@ -78,6 +78,11 @@ function updateHeight() {
 }
 
 function onLoad() {
+  if (import.meta.env.DEV) {
+    height.value = props.minHeight
+    return
+  }
+
   updateHeight()
 
   const iframe = iframeRef.value
